@@ -30,5 +30,8 @@ class Spending
     self.expenses_id().==(another_spendings.expenses_id()).&(self.id().==(another_spendings.id()))
   end
 
+  define_singleton_method(:clear) do
+    DB.exec("DELETE FROM spendings *;")
+  end
 
 end

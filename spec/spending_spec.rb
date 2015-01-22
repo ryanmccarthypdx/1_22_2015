@@ -12,4 +12,15 @@ describe(Spending) do
     end
   end
 
+  describe('.clear') do
+    it('clears all in the table') do
+      test_spending1 = Spending.new({:id => nil, :expenses_id => 1, :categories_id => 1})
+      test_spending1.save()
+      test_spending2 = Spending.new({:id => nil, :expenses_id => 2, :categories_id => 2})
+      test_spending2.save()
+      Spending.clear()
+      expect(Spending.all()).to(eq([]))
+    end
+  end
+
 end
